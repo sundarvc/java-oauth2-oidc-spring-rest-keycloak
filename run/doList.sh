@@ -1,1 +1,1 @@
-curl -v localhost:8080/employees
+curl -v  --user 'test1:abc111' localhost:8080/products
