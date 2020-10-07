@@ -1,6 +1,8 @@
 # oauth-demo
 REST API with Oauth and SAML
 
+Version 0.1 
+
 Security Vulnerabilities
 
 1. User credentials passed with every request.
