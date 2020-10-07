@@ -20,6 +20,8 @@ class LoadProductTable {
     return args -> {
       log.info("Preloading " + repository.save(new Product("PC", "Windows 10 OS")));
       log.info("Preloading " + repository.save(new Product("Display", "Dell 27inch HDMI")));
+      log.info("Preloading " + repository.save(new Product("Mobile Phone", "iPhone XR Retina Display")));
+      
     };
   }
   

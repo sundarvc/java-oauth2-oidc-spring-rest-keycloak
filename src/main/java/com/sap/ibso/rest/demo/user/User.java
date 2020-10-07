@@ -1,5 +1,10 @@
 package com.sap.ibso.rest.demo.user;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -7,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity(name="users")
 public class User {
@@ -22,6 +28,11 @@ public class User {
 	
 	private String password;
 	
+	@OneToMany(cascade=ALL, fetch=EAGER)
+	List<UserAuthority> userAuthorities = new ArrayList<>();
+	
+
+
 	public User() {}
 
 	public User(UUID id, String username, String password) {
@@ -29,6 +40,14 @@ public class User {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+	}
+	
+	public User(User user) {
+		this.id = user.id;
+		this.username = user.username;
+		this.password = user.password;
+		this.enabled = user.enabled;
+		this.userAuthorities = new ArrayList<>(user.userAuthorities);
 	}
 	
 	public User(String username, String password) {
@@ -70,6 +89,17 @@ public class User {
 		this.password = password;
 	}
 	
+	public void setUserAuthorities(List<UserAuthority> userAuthorities) {
+		this.userAuthorities = userAuthorities;
+	}
+
+	public void addAuthority(String authority) {
+		this.userAuthorities.add(new UserAuthority(this, authority));
+	}
+	
+	public List<UserAuthority> getUserAuthorities() {
+		return userAuthorities;
+	}
 
 	@Override
 	public String toString() {

@@ -17,15 +17,6 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 @SpringBootApplication
 public class ProductApplication {
 
-	@Bean
-	public UserDetailsService userDetailsService(DataSource dataSource) {
-		return new JdbcUserDetailsManager(dataSource) {
-			@Override
-			protected List<GrantedAuthority> loadUserAuthorities(String username) {
-				return AuthorityUtils.createAuthorityList("ROLE_USER");
-			}
-		};
-	}
 	
 	
 
