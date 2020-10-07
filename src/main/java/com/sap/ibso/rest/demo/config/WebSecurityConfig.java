@@ -44,8 +44,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.authorizeRequests(a -> {
 			a.mvcMatchers(HttpMethod.GET, "/products/**").hasAuthority("READ").
-			mvcMatchers(HttpMethod.PUT, "/products/**").hasAuthority("WRITE").
+			mvcMatchers(HttpMethod.PUT, "/products/**").hasAuthority("UPDATE").
+			mvcMatchers(HttpMethod.POST, "/products/**").hasAuthority("CREATE").
+			mvcMatchers(HttpMethod.DELETE, "/products/**").hasAuthority("DELETE").
 			anyRequest().authenticated();
+			
+			
 		})
 		.httpBasic();
 		http.csrf().disable();
@@ -61,11 +65,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public UserDetailsService userDetailsService(DataSource dataSource) {
 		return new JdbcUserDetailsManager(dataSource) {
 			@Override
-			protected List<GrantedAuthority> loadUserAuthorities(String username) {
+				protected List<GrantedAuthority> loadUserAuthorities(String username) {
 				User user = userRepository.findByName(username);
-				//return AuthorityUtils.createAuthorityList("ROLE_USER");
 				log.info(user.toString());
-				List<GrantedAuthority> grantedAuthorities = new ArrayList<>(); // use list if you wish
+				List<GrantedAuthority> grantedAuthorities = new ArrayList<>(); 
 				for (UserAuthority auth : user.getUserAuthorities()) {
 				    grantedAuthorities.add(new SimpleGrantedAuthority(auth.getAuthority()));
 				    log.info(auth.toString());

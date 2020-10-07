@@ -39,10 +39,13 @@ public class LoadUserTable {
 			User test1 = new User("test1", passwordEncoder().encode("abc111"));
 			test1.addAuthority("READ");
 			User test2 = new User("test2", passwordEncoder().encode("abc222"));
-			test2.addAuthority("WRITE");
+			test2.addAuthority("UPDATE");
 			test2.addAuthority("READ");
+			User test3 = new User("test3", passwordEncoder().encode("abc333"));
+			test3.addAuthority("CREATE");
 			log.info("Preloading " + repository.save(test1));
 			log.info("Preloading " + repository.save(test2));
+			log.info("Preloading " + repository.save(test3));
 		};
 	}
 
