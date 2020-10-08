@@ -1,1 +1,1 @@
-curl -v   localhost:8080/products
+curl -v  localhost:8080/products
