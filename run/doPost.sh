@@ -1,1 +1,1 @@
-curl -X POST localhost:8080/employees -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "gardener"}'
+curl -X POST localhost:8080/products -H 'Content-type:application/json' -H "Authorization: Bearer ${TOKEN}" -d '{"name": "iMac", "description": "32-core CPU"}'
