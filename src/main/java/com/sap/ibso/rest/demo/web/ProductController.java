@@ -1,8 +1,15 @@
 package com.sap.ibso.rest.demo.web;
 
 
+import java.security.Principal;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +26,8 @@ import com.sap.ibso.rest.demo.model.exceptions.ProductNotFoundException;
 class ProductController {
 
   private final ProductRepository repository;
+  private static final Logger log = LoggerFactory.getLogger(ProductController.class);
+
 
   ProductController(ProductRepository repository) {
     this.repository = repository;
@@ -27,12 +36,17 @@ class ProductController {
   // Aggregate root
 
   @GetMapping("/products")
-  List<Product> all() {
-    return repository.findAll();
+  List<Product> all(@AuthenticationPrincipal Jwt jwt) {
+	UUID owner = UUID.fromString(jwt.getClaim("user_id"));
+	log.info("user_id = " + owner);
+    return repository.findByOwner(owner);
   }
 
   @PostMapping("/products")
-  Product newProduct(@RequestBody Product product) {
+  Product newProduct(@RequestBody Product product,@AuthenticationPrincipal Jwt jwt) {
+	UUID owner = UUID.fromString(jwt.getClaim("user_id"));
+	log.info("Owner = " + owner);
+	product.setOwner(owner);
     return repository.save(product);
   }
 

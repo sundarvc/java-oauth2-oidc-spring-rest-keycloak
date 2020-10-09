@@ -1,3 +1,4 @@
+
 package com.sap.ibso.rest.demo.user;
 
 import static javax.persistence.CascadeType.ALL;
@@ -18,7 +19,6 @@ import javax.persistence.OneToMany;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
 	@Column(nullable = false, unique = true)
@@ -30,8 +30,6 @@ public class User {
 	
 	@OneToMany(cascade=ALL, fetch=EAGER)
 	List<UserAuthority> userAuthorities = new ArrayList<>();
-	
-
 
 	public User() {}
 

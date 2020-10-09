@@ -1,25 +1,43 @@
 package com.sap.ibso.rest.demo.model;
 
 import java.util.Objects;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="products")
 public class Product {
 
 	private @Id @GeneratedValue Long id;
 	private String name;
 	private String description;
+	private UUID owner;
 
 	Product() {
 	}
 
+	Product(UUID o,String name, String description) {
+
+		this.name = name;
+		this.description = description;
+		this.owner = o;
+	}
+	
 	Product(String name, String description) {
 
 		this.name = name;
 		this.description = description;
+	}
+	
+	
+	public UUID getOwner() {
+		return owner;
+	}
+
+	public void setOwner(UUID owner) {
+		this.owner = owner;
 	}
 
 	public Long getId() {
@@ -65,6 +83,6 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product{" + "id=" + this.id + ", name='" + this.name + '\'' + ", description='" + this.description + '\'' + '}';
+		return "Product{" + "id=" + this.id + ", name='" + this.name + '\'' + ", description='" + this.description + '\'' + ", ownner='" + this.owner + '}';
 	}
 }
