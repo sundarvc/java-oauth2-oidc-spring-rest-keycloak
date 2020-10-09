@@ -57,6 +57,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.authorizeRequests(a -> {
 			a.mvcMatchers(HttpMethod.GET, "/products/**").authenticated()
+			.mvcMatchers(HttpMethod.PUT, "/products/**").authenticated()
+			.mvcMatchers(HttpMethod.POST, "/products/**").authenticated()
+			.mvcMatchers(HttpMethod.DELETE, "/products/**").authenticated()
             .anyRequest().permitAll();
             
 			

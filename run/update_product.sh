@@ -1,0 +1,1 @@
+curl -X PUT localhost:8080/products/$1 -H 'Content-type:application/json'  -H "Authorization: Bearer ${TOKEN}" -d "Update$2"
