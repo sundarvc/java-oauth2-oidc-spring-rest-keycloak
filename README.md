@@ -1,4 +1,4 @@
-# oauth-demo
+# OAuth 2.0 Spring 5.x REST API with Keycloak Server
 REST API with OAuth 2.0 and OIDC
 
 Version 0.1 
