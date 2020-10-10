@@ -20,12 +20,15 @@ Step 3 : Login to your auth server and create user,password for user , "user_id"
          start_auth_server.sh script.
          
 Step 4 : In a new terminal
+
          ./start_resource_server.sh
          
 Step 5 : . ./get_token_for.sh <user> <password> <scope>
+         
          scope should be "product:read" , as defined in resource server controller.
          
 Step 6 : echo $TOKEN to verify token is present
 
 Step 7 : ./list_products.sh 
+
          Should see some data returned.
