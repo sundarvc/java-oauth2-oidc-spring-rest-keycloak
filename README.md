@@ -1,5 +1,5 @@
 # oauth-demo
-REST API with Oauth and OIDC
+REST API with OAuth and OIDC
 
 Version 0.1 
 
