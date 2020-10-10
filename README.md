@@ -10,6 +10,12 @@ Security Vulnerabilities
 3. Once Client has access to User credentials , Client has full control over resources i.e. impersonate the User.
 4. User credentials are stored in the application database.
 
+Version 0.2
+
+Security Vulnerabilities
+
+1. Removed version 0.1 , 1-4 vulnerabilities.
+
 Usage for MacOS:
 
 Step 1 : cd ./run
