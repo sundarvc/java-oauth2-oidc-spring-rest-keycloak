@@ -20,14 +20,16 @@ Usage for MacOS:
 
 Step 1 : cd ./run
 
-Step 2 : ./start_auth_server.sh
+Step 2 : Start keycloak server
+
+         ./start_auth_server.sh
 
 Step 3 : Login to your auth server (username: admin , password: admin)
          
          http://localhost:9999/auth/
 
-         and create user,password for user , "user_id" attribute and associated UUID and scope. More info inside
-         get_token_for.sh script.
+         and create user,password for user , "user_id" attribute and associated UUID and scope. 
+         More info inside get_token_for.sh script.
          
 Step 4 : In a new terminal
 
