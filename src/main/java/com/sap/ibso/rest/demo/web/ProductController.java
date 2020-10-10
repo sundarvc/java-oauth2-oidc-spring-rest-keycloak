@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +36,7 @@ class ProductController {
 	// Aggregate root
 
 	@GetMapping("/products")
+	@PreAuthorize("hasAnyAuthority('SCOPE_product:read','SCOPE_product:write')")
 	List<Product> all(@AuthenticationPrincipal Jwt jwt) {
 		UUID owner = UUID.fromString(jwt.getClaim("user_id"));
 		log.info("user_id = " + owner);
@@ -43,6 +45,7 @@ class ProductController {
 
 	@PostMapping("/products")
 	@Transactional
+	@PreAuthorize("hasAuthority('SCOPE_product:write')")
 	Product newProduct(@RequestBody Product product, @AuthenticationPrincipal Jwt jwt) {
 		UUID owner = UUID.fromString(jwt.getClaim("user_id"));
 		log.info("Owner = " + owner);
@@ -54,6 +57,7 @@ class ProductController {
 
 	@GetMapping("/products/{id}")
 	@PostAuthorize("@owner.apply(returnObject,principal.claims['user_id'])")
+	@PreAuthorize("hasAuthority('SCOPE_product:read')")
 	Product one(@PathVariable("id") Long id) {
 
 		return repository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
@@ -61,6 +65,7 @@ class ProductController {
 
 
 	@DeleteMapping("/products/{id}")
+	@PreAuthorize("hasAuthority('SCOPE_product:write')")
 	void deleteProduct(@PathVariable("id") Long id, @AuthenticationPrincipal Jwt jwt) {
 		UUID owner = UUID.fromString(jwt.getClaim("user_id"));
 		log.info("Owner = " + owner);
@@ -70,6 +75,7 @@ class ProductController {
 	@PutMapping(path = "/products/{id}")
 	@PostAuthorize("@owner.apply(returnObject, principal.claims['user_id'])")
 	@Transactional
+	@PreAuthorize("hasAuthority('SCOPE_product:write')")
 	public Optional<Product> revise(@PathVariable("id") Long id, @RequestBody String text) {
 		repository.revise(id, text);
 		return repository.findById(id);
