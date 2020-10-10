@@ -17,7 +17,7 @@ Step 1 : cd ./run
 Step 2 : ./start_auth_server.sh
 
 Step 3 : Login to your auth server and create user,password for user , "user_id" attribute and associated UUID and scope. More info inside
-         start_auth_server.sh script.
+         get_token_for.sh script.
          
 Step 4 : In a new terminal
 
