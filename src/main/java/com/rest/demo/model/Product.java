@@ -1,4 +1,4 @@
-package com.sap.ibso.rest.demo.model;
+package com.rest.demo.model;
 
 import java.util.Objects;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package com.sap.ibso.rest.demo.config;
+package com.rest.demo.config;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
-import com.sap.ibso.rest.demo.user.User;
-import com.sap.ibso.rest.demo.user.UserAuthority;
-import com.sap.ibso.rest.demo.user.UserRepository;
+import com.rest.demo.user.User;
+import com.rest.demo.user.UserAuthority;
+import com.rest.demo.user.UserRepository;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

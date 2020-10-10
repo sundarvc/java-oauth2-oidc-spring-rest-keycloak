@@ -1,4 +1,4 @@
-package com.sap.ibso.rest.demo.model.exceptions;
+package com.rest.demo.model.exceptions;
 
 
 import org.springframework.http.HttpStatus;

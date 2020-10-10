@@ -1,5 +1,5 @@
 
-package com.sap.ibso.rest.demo.user;
+package com.rest.demo.user;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;

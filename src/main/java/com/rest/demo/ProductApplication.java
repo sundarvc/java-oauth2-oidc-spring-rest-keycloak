@@ -1,4 +1,4 @@
-package com.sap.ibso.rest.demo;
+package com.rest.demo;
 
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
-import com.sap.ibso.rest.demo.model.Product;
+import com.rest.demo.model.Product;
 
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled=true)

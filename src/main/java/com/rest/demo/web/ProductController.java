@@ -1,4 +1,4 @@
-package com.sap.ibso.rest.demo.web;
+package com.rest.demo.web;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sap.ibso.rest.demo.model.Product;
-import com.sap.ibso.rest.demo.model.ProductRepository;
-import com.sap.ibso.rest.demo.model.exceptions.ProductNotFoundException;
+import com.rest.demo.model.Product;
+import com.rest.demo.model.ProductRepository;
+import com.rest.demo.model.exceptions.ProductNotFoundException;
 
 @RestController
 class ProductController {

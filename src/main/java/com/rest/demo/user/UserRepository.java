@@ -1,4 +1,4 @@
-package com.sap.ibso.rest.demo.user;
+package com.rest.demo.user;
 
 import java.util.UUID;
 

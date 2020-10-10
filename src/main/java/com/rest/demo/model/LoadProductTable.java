@@ -1,4 +1,4 @@
-package com.sap.ibso.rest.demo.model;
+package com.rest.demo.model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,9 +6,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.sap.ibso.rest.demo.user.LoadUserTable;
-import com.sap.ibso.rest.demo.user.User;
-import com.sap.ibso.rest.demo.user.UserRepository;
+import com.rest.demo.user.LoadUserTable;
+import com.rest.demo.user.User;
+import com.rest.demo.user.UserRepository;
 
 @Configuration
 class LoadProductTable {
