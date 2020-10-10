@@ -1,5 +1,5 @@
 # oauth-demo
-REST API with Oauth and SAML
+REST API with Oauth and OIDC
 
 Version 0.1 
 
