@@ -32,3 +32,5 @@ Step 6 : echo $TOKEN to verify token is present
 Step 7 : ./list_products.sh 
 
          Should see some data returned.
+         
+Comments welcome : sundar.chakravarthy@gmail.com
