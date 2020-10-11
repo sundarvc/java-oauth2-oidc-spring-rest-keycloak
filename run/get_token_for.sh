@@ -7,6 +7,7 @@
 
 # realm used here is "one" realm.
 # by default keycloak does not save entries between server restarts.
+# I believe a Dockerfile can be used or a docker commit can help with this.
 
 #if creating a new user under "one" realm , you should add a custom attribute called "user_id"
 # and then copy the UUID from LoadUserTable.java. This will be the federated identifier for that user.
