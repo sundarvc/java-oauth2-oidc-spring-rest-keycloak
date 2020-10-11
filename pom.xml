@@ -9,7 +9,7 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sap.ibso.rest</groupId>
+	<groupId>com.rest</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
@@ -77,7 +77,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.sap.ibso.rest.demo.ProductApplication</mainClass>
+					<mainClass>com.rest.demo.ProductApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
