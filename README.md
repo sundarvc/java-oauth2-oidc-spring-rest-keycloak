@@ -19,7 +19,8 @@ Usage for MacOS:
 
 Step 1 : cd ./run
 
-Step 2 : Start keycloak server
+Step 2 : Start keycloak server. Note you have to change the default realm directory on your host first.
+         Open the file below to make the change.
 
          ./start_auth_server.sh
 
