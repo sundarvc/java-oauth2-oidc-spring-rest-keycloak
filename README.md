@@ -38,7 +38,8 @@ Step 4 : In a new terminal
          
 Step 5 : . ./get_token_for.sh <user> <password> <scope>
          
-         scope should be "product:read" , as defined in resource server controller.
+         scope should be "product:read" or "product:write" , as defined in resource server controller.
+         This can be configured by changing the controller java file.
          
 Step 6 : echo $TOKEN to verify token is present
 
