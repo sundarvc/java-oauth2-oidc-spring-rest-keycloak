@@ -3,32 +3,34 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: demo
-  name: demo
+    app: restdemo
+  name: restdemo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo
+      app: restdemo
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: demo
+        app: restdemo
     spec:
       containers:
-      - image: docker.io/sundarvc/restdemo:v0.11
-        name: demo
+      - image: docker.io/sundarvc/restdemo:v0.3
+        name: restdemo
         resources: {}
+status: {}
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: demo
-  name: demo
+    app: restdemosvc
+  name: restdemosvc
 spec:
   ports:
   - name: 8080-8080
@@ -36,7 +38,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: demo
+    app: restdemosvc
   type: ClusterIP
 status:
   loadBalancer: {}
