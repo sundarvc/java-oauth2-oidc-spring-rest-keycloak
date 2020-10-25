@@ -30,6 +30,12 @@ class ProductController {
   }
 
   // Aggregate root
+  
+  @GetMapping("/")
+  String message() {
+	log.info("Retrieving all products");  
+    return "Welcome to Rest App !";
+  }
 
   @GetMapping("/products")
   List<Product> all() {
