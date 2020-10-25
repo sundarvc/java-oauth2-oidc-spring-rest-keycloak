@@ -18,7 +18,7 @@ spec:
         app: restapp
     spec:
       containers:
-      - image: docker.io/sundarvc/restdemo:v0.4
+      - image: docker.io/sundarvc/restdemo:v0.5
         name: restapp
         resources: {}
 ---
