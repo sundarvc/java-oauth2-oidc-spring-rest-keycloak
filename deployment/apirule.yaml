@@ -18,6 +18,6 @@ spec:
         - HEAD
       path: /.*
   service:
-    host: rest-app.c-3c2d6f9.kyma.shoot.live.k8s-hana.ondemand.com
+    host: rest-app.c-1a0d284.kyma-stage.shoot.live.k8s-hana.ondemand.com
     name: restapp
     port: 8080
